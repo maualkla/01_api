@@ -25,6 +25,9 @@ var server = http.createServer(function(req, res){
 	// Get HTTP Method
 	var method = req.method.toLowerCase();
 
+	// Get the headers as an object
+	
+
 	// Send the response.
 	res.end("Hello world!\n");
 
