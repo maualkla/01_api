@@ -18,7 +18,7 @@ var server = http.createServer(function(req, res){
 
 	// Get the URL path.
 	var path = parsedUrl.pathname;
-	var trimedPath = path.replace(/^\/+|\/+$/g,'');
+	var trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
 	// Get the query string as an object.
 	var queryStringObject = parsedUrl.query;
@@ -51,7 +51,7 @@ var server = http.createServer(function(req, res){
 		}
 
 		// Route the request to the handler specified in the router
-		choosenHandler(data, function(statusCode, payload){
+		chosenHandler(data, function(statusCode, payload){
 			// Use the status code called back by the handler, or default to 200  
 			status = typeof(statusCode) == 'number' ? statusCode : 200;
 
