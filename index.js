@@ -39,7 +39,7 @@ var server = http.createServer(function(req, res){
 		buffer += decoder.end();
 
 		// choose handler this request should go to .
-		var choosenHandler = typeOf(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
+		var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
 		// Construct the data object to be sent 
 		var data = {
@@ -51,13 +51,12 @@ var server = http.createServer(function(req, res){
 		}
 
 		// Route the request to the handler specified in the router
-
 		choosenHandler(data, function(statusCode, payload){
 			// Use the status code called back by the handler, or default to 200  
-			stautsCode = typeOf(stautsCode) == 'number' ? stautsCode = 200;
+			status = typeof(statusCode) == 'number' ? statusCode : 200;
 
 			// Use the payloasd called back by the handler or default to an empty object
-			payload = typeOf(payload) == 'object' ? payload : {};
+			payload = typeof(payload) == 'object' ? payload : {};
 
 			// Convert the payload to a string
 			var payloadString = JSON.stringify(payload);
