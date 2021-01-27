@@ -43,8 +43,8 @@ var server = http.createServer(function(req, res){
 
 		// Construct the data object to be sent 
 		var data = {
-			'trimmedPath' = trimmedPath, 
-			'queryStringObject' = queryStringObject,
+			'trimmedPath' : trimmedPath, 
+			'queryStringObject' : queryStringObject,
 			'method' : method, 
 			'headers' : headers, 
 			'payload' : buffer
