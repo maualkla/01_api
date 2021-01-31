@@ -19,3 +19,8 @@
  };
 
 
+// Determine the enviroment to be returned
+var currentEnviroment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase();
+
+
+// 7:13
