@@ -7,7 +7,7 @@
  var enviroments = {};
 
  // Staging enviroment
- enviroments.staging{
+ enviroments.staging = {
  	'port': 3000,
  	'envName': 'staging'
  };
