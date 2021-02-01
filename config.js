@@ -20,7 +20,7 @@
 
 
 // Determine the enviroment to be returned
-var currentEnviroment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase() : '':
+var currentEnviroment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase() : '';
 
 
 // Check th current enviroment in one of the variables avobe. if not default to stagging
