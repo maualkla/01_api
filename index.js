@@ -6,22 +6,36 @@
 
 // Dependencies
 const http = require("http");
+const https = require("https");
 const url = require("url");
 const StringDecoder = require("string_decoder").StringDecoder;
 const config = require('./config');
+const fs = require('fs');
 
 // Instanciate the http server 
-var server = http.createServer(function(req, res){
-
-	// empty
+var httpServer = http.createServer(function(req, res){
+	
 	unifiedServer(req, res);
-
 });
 
-
-// Start the server, getting the port from config file.
-server.listen(config.httpPort, function(){
+// Start the http, getting the port from config file.
+httpServer.listen(config.httpPort, function(){
 	console.log("the server is listening in port " + config.httpPort + " in " + config.envName + " enviroment." );
+});
+
+// Instanciate the HTTPS server
+var httpsServer = https.createServer(httpsServerOptions, function(req, res){
+	
+	unifiedServer(req, res);
+});
+
+// start the https server
+var httpsServerOptionsn = {
+	'key': fs.readFileSync('./https/privkey.pem'),
+	'cert': fs.readFileSync('./https/cacert.pem')
+};
+httpsServer.listen(config.httpsPort, function(){
+	console.log("the server is listening in port " + config.httpsPort + " in " + config.envName + " enviroment." );
 });
 
 
