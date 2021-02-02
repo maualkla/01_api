@@ -10,10 +10,23 @@ const url = require("url");
 const StringDecoder = require("string_decoder").StringDecoder;
 const config = require('./config');
 
-// The server should respond to all request with a string :)
+// Instanciate the http server 
 var server = http.createServer(function(req, res){
 
+	// empty
+	unifiedServer(req, res);
 
+});
+
+
+// Start the server, getting the port from config file.
+server.listen(config.httpPort, function(){
+	console.log("the server is listening in port " + config.httpPort + " in " + config.envName + " enviroment." );
+});
+
+
+// Unified logic for the http and https servers.
+var unifiedServer = fucntion(req, res){
 	// Get the URL and parse it.
 	var parsedUrl = url.parse(req.url, true);
 
@@ -72,14 +85,7 @@ var server = http.createServer(function(req, res){
 		});
 		
 	});
-
-});
-
-
-// Start the server, getting the port from config file.
-server.listen(config.port, function(){
-	console.log("the server is listening in port " + config.port + " in " + config.envName + " enviroment." );
-});
+};
 
 // Define the handlers
 var handlers = {};
