@@ -24,23 +24,23 @@ httpServer.listen(config.httpPort, function(){
 });
 
 // Instanciate the HTTPS server
+var httpsServerOptions = {
+	'key': fs.readFileSync('./https/privkey.pem'),
+	'cert': fs.readFileSync('./https/cacert.pem')
+};
 var httpsServer = https.createServer(httpsServerOptions, function(req, res){
 	
 	unifiedServer(req, res);
 });
 
 // start the https server
-var httpsServerOptionsn = {
-	'key': fs.readFileSync('./https/privkey.pem'),
-	'cert': fs.readFileSync('./https/cacert.pem')
-};
 httpsServer.listen(config.httpsPort, function(){
 	console.log("the server is listening in port " + config.httpsPort + " in " + config.envName + " enviroment." );
 });
 
 
 // Unified logic for the http and https servers.
-var unifiedServer = fucntion(req, res){
+var unifiedServer = function(req, res){
 	// Get the URL and parse it.
 	var parsedUrl = url.parse(req.url, true);
 
