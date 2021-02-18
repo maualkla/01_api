@@ -15,8 +15,8 @@ const fs = require('fs');
 var _data = require('./lib/data');
 
 // @TODO delete 
-_data.read('test', 'newFile', function(err, data){
-	console.log('Error:', err, " and data ", data);
+_data.update('test', 'newFile', {'hola': 'adios'}, function(err){
+	console.log('Error:', err);
 });
 
 // Instanciate the http server 
