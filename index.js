@@ -15,7 +15,7 @@ const fs = require('fs');
 var _data = require('./lib/data');
 
 // @TODO delete 
-_data.update('test', 'newFile', {'hola': 'adios'}, function(err){
+_data.delete('test', 'newFile', function(err){
 	console.log('Error:', err);
 });
 
