@@ -12,12 +12,15 @@ const StringDecoder = require("string_decoder").StringDecoder;
 const config = require('./config');
 const fs = require('fs');
 
+/*
 var _data = require('./lib/data');
 
 // @TODO delete 
 _data.delete('test', 'newFile', function(err){
 	console.log('Error:', err);
 });
+*/
+
 
 // Instanciate the http server 
 var httpServer = http.createServer(function(req, res){
