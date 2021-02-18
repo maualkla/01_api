@@ -21,7 +21,6 @@ _data.delete('test', 'newFile', function(err){
 });
 */
 
-
 // Instanciate the http server 
 var httpServer = http.createServer(function(req, res){
 	
