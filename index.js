@@ -80,14 +80,14 @@ var unifiedServer = function(req, res){
 		// choose handler this request should go to .
 		var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
-		// Construct the data object to be sent 
+		// Construct the data object to be sent 	
 		var data = {
 			'trimmedPath' : trimmedPath, 
 			'queryStringObject' : queryStringObject,
 			'method' : method, 
-			'headers' : headers, 
-			'payload' : helpers.parseJsonToObject(buffer)
-		}
+			'headers' : headers,
+        	'payload' : helpers.parseJsonToObject(buffer)
+		};
 
 		// Route the request to the handler specified in the router
 		chosenHandler(data, function(statusCode, payload){
@@ -117,4 +117,4 @@ var unifiedServer = function(req, res){
 // Define a request router
 var router = {
 	'ping': handlers.ping
-}
+};
