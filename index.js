@@ -11,7 +11,7 @@ const url = require("url");
 const StringDecoder = require("string_decoder").StringDecoder;
 const config = require('./lib/config');
 const fs = require('fs');
-const handler = require('./lib/handlers');
+const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
 
 /*
@@ -79,8 +79,8 @@ var unifiedServer = function(req, res){
 
 		// choose handler this request should go to .
 		console.log('---> trimmedPath', typeof(router[trimmedPath]));
-		console.log('---> Handlers.notFound', handler.notFound);
-		var chooseHand = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handler.notFound;
+		console.log('---> Handlers.notFound', handlers.notFound);
+		var chooseHand = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 		console.log('---> chooseHand', chooseHand);
 		// Construct the data object to be sent 	
 		var data = {
@@ -118,6 +118,6 @@ var unifiedServer = function(req, res){
 
 // Define a request router
 var router = {
-	'ping': handler.ping,
-	'users': handler.users
+	'ping': handlers.ping,
+	'users': handlers.users
 };
