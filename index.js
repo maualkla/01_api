@@ -78,19 +78,21 @@ var unifiedServer = function(req, res){
 		buffer += decoder.end();
 
 		// choose handler this request should go to .
-		var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
-
+		console.log('---> trimmedPath', typeof(router[trimmedPath]));
+		console.log('---> Handlers.notFound', handlers.notFound);
+		var chooseHand = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
+		console.log('---> chooseHand', chooseHand);
 		// Construct the data object to be sent 	
 		var data = {
-			'trimmedPath' : trimmedPath, 
 			'queryStringObject' : queryStringObject,
-			'method' : method, 
+			'method' : method,
+			'trimmedPath' : trimmedPath, 
 			'headers' : headers,
         	'payload' : helpers.parseJsonToObject(buffer)
 		};
 
 		// Route the request to the handler specified in the router
-		chosenHandler(data, function(statusCode, payload){
+		chooseHand(data, function(statusCode, payload){
 			// Use the status code called back by the handler, or default to 200  
 			status = typeof(statusCode) == 'number' ? statusCode : 200;
 
@@ -108,7 +110,7 @@ var unifiedServer = function(req, res){
 			// Log the request path.
 			console.log("Returning this response: ", statusCode, payloadString);
 		});
-		
+
 	});
 };
 
