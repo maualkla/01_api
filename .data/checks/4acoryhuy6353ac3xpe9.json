@@ -1,1 +1,1 @@
-{"id":"4acoryhuy6353ac3xpe9","userPhone":"5214491101132","protocol":"http","url":"google.com","method":"get","successCodes":[200,201],"timeoutSeconds":5}
+{"id":"4acoryhuy6353ac3xpe9","userPhone":"5214491101132","protocol":"https","url":"maualkla.com","method":"put","successCodes":[200,201,403],"timeoutSeconds":5}
