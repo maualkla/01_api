@@ -122,5 +122,6 @@ var router = {
 	'users': handlers.users,
 	'tokens': handlers.tokens, 
 	'checks': handlers.checks,
-	'': handlers.home
+	'': handlers.home,
+	'hello': handlers.hello
 };

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> NODE API WEB CLIENT</title>
+    </head>
+    <body>
+        <div>
+            <h1> Node Api Web Client</h1>
+            <p> Quick web client to use Node API. </p>
+        </div>
+        <script>
+            fetch('http://192.168.100.27:3000/hello')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        </script>
+    </body>
+</html>
