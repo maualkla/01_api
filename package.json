@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@my-org/fedex_pricing_module": "github:maualkla/fedex_pricing_module"
+  }
+}
